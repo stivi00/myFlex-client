@@ -20,7 +20,7 @@ export const MainView = () => {
                 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
             Genre: 'Crime',
             Director: 'Francis Ford Coppola',
-            ImageURL: 'https://example.com/the_godfather.jpg',
+            ImageURL: 'https://img.fruugo.com/product/4/49/14441494_max.jpg',
         },
         {
             id: 3,
@@ -58,16 +58,17 @@ export const MainView = () => {
     }
 
     return (
-        <div>
-            {/* {movies.map((movie) => (
+        <div className='my-flix'>
+            {movies.map((movie) => (
                 <MovieCard
+                    className='thumbnails'
                     key={movie.id}
                     movie={movie}
                     onMovieClick={() => {
                         setSelectedMovie(movie);
                     }}
                 />
-            ))} */}
+            ))}
         </div>
     );
 };

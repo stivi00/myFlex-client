@@ -5,7 +5,11 @@ export const MovieCard = ({ movie, onMovieClick }) => {
                 onMovieClick(movie);
             }}
         >
-            {movie.Title}
+            <img
+                className='thumbnails'
+                src={movie.ImageURL}
+                alt={movie.Title}
+            />
         </div>
     );
 };
