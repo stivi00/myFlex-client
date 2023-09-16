@@ -1,5 +1,17 @@
 .my-flix {
-  color: #4682b4;
+  flex-direction: row;
+  justify-content: space-around;
+  display: flex;
+}
+
+.thumbnails {
+  max-width: 150px;
+  max-height: 300px;
+  margin: 5px;
+}
+
+.thumbnails:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
