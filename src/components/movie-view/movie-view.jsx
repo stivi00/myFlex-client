@@ -1,6 +1,6 @@
 export const MovieView = ({ movie, onBackClick }) => {
     return (
-        <div>
+        <div className='movieView-card'>
             <div>
                 <img src={movie.ImageURL} />
             </div>

@@ -14,4 +14,9 @@
   cursor: pointer;
 }
 
+.movieView-card {
+  flex-direction: column;
+  display: flex;
+}
+
 /*# sourceMappingURL=index.ce1d6491.css.map */
