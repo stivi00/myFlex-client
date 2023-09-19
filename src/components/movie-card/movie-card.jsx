@@ -7,7 +7,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
         >
             <img
                 className='thumbnails'
-                src={movie.ImageURL}
+                src={movie.ImagePath}
                 alt={movie.Title}
             />
         </div>
