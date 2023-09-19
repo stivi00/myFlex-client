@@ -5,6 +5,7 @@
 }
 
 .thumbnails {
+  border: 1px solid #000;
   max-width: 150px;
   max-height: 300px;
   margin: 5px;
@@ -17,6 +18,11 @@
 .movieView-card {
   flex-direction: column;
   display: flex;
+}
+
+.movieView-image {
+  width: 250px;
+  height: 400px;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
