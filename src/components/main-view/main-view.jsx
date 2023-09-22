@@ -8,8 +8,16 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
 
+    const [token, setToken] = useState(null);
+
     useEffect(() => {
-        fetch('https://myflixapi-50hz.onrender.com/movies')
+        if (!token) {
+            return;
+        }
+
+        fetch('https://myflixapi-50hz.onrender.com/movies', {
+            headers: { Authorization: `Bearer ${token}` },
+        })
             .then((response) => response.json())
             .then((data) => {
                 console.log('movies from api', data);
@@ -26,10 +34,17 @@ export const MainView = () => {
                 });
                 setMovies(moviesFromAp);
             });
-    }, []);
+    }, [token]);
 
     if (!user) {
-        return <LoginView onLoggedIn={(user) => setUser(user)} />;
+        return (
+            <LoginView
+                onLoggedIn={(user, token) => {
+                    setUser(user);
+                    setToken(token);
+                }}
+            />
+        );
     }
 
     if (selectedMovie) {
@@ -57,6 +72,15 @@ export const MainView = () => {
                     }}
                 />
             ))}
+
+            <button
+                onClick={() => {
+                    setUser(null);
+                    setToken(null);
+                }}
+            >
+                Logout
+            </button>
         </div>
     );
 };
