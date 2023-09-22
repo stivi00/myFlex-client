@@ -15,7 +15,7 @@ export const SignupView = () => {
             Birthday: birthday,
         };
 
-        fetch('SIGNUP_URL', {
+        fetch('add signup link later', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

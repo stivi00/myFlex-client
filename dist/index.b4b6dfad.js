@@ -28508,7 +28508,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("SIGNUP_URL", {
+        fetch("add signup link later", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
