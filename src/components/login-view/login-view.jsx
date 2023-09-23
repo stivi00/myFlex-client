@@ -48,7 +48,7 @@ export const LoginView = ({ onLoggedIn }) => {
                 />
             </label>
 
-            {/* implement minLength to uzsername validation */}
+            {/* implement minLength to username validation */}
 
             <label>
                 Password:
