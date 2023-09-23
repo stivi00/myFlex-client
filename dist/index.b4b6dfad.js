@@ -28508,7 +28508,7 @@ const SignupView = ()=>{
             Email: email,
             Birthday: birthday
         };
-        fetch("add signup link later", {
+        fetch("https://myflixapi-50hz.onrender.com/users", {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
