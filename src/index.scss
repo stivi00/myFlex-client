@@ -1,5 +1,6 @@
 .my-flix {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -17,7 +18,7 @@
 
 .movieView-card {
     // border: 1px solid red;
-    display: flex;
+    // display: flex;
     flex-direction: column;
 }
 
