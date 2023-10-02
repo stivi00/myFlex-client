@@ -26,7 +26,7 @@ export const MainView = () => {
             .then((response) => response.json())
             .then((data) => {
                 console.log('movies from api', data);
-                const moviesFromAp = data.map((docs) => {
+                const moviesFromApi = data.map((docs) => {
                     return {
                         id: docs._id,
                         Actors: docs.Actors,
@@ -37,7 +37,7 @@ export const MainView = () => {
                         ImagePath: docs.ImagePath,
                     };
                 });
-                setMovies(moviesFromAp);
+                setMovies(moviesFromApi);
             });
     }, [token]);
 
@@ -81,7 +81,7 @@ export const MainView = () => {
                     />
 
                     <Route
-                        path='/movies/:title'
+                        path='/movies/:Title'
                         element={
                             <>
                                 {!user ? (
@@ -91,10 +91,10 @@ export const MainView = () => {
                                 ) : (
                                     <Col md={8}>
                                         <MovieView
-                                            movie={selectedMovie}
-                                            onBackClick={() =>
-                                                setSelectedMovie(null)
-                                            }
+                                            movies={movies}
+                                            // onBackClick={() =>
+                                            //     setSelectedMovie(null)
+                                            // }
                                         />
                                     </Col>
                                 )}
@@ -120,13 +120,12 @@ export const MainView = () => {
                                                     className='mb-5'
                                                 >
                                                     <MovieCard
-                                                        key={movie.id}
                                                         movie={movie}
-                                                        onMovieClick={() => {
-                                                            setSelectedMovie(
-                                                                movie
-                                                            );
-                                                        }}
+                                                        // onMovieClick={() => {
+                                                        //     setSelectedMovie(
+                                                        //         movie
+                                                        //     );
+                                                        // }}
                                                     />
                                                 </Col>
                                             ))}
