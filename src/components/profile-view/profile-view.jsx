@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { MovieCard } from '../movie-card/movie-card';
-import { Form, Button, Card, Row, Col, Modal } from 'react-bootstrap';
-import { Link, Navigate } from 'react-router-dom';
+import { Form, Button, Row, Col, Modal } from 'react-bootstrap';
 
 export const ProfileView = ({ movies }) => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -47,7 +46,7 @@ export const ProfileView = ({ movies }) => {
                 if (data) {
                     localStorage.setItem('user', JSON.stringify(data));
                     setUser(data);
-                    alert('Update was successful .');
+                    alert('Update was successfull.');
                 }
             });
     };
