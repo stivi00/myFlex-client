@@ -3,6 +3,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
+import { NavigationBar } from '../navigation-bar/navigation-bar';
 
 import { Row, Col, Button } from 'react-bootstrap';
 
@@ -15,7 +16,7 @@ export const MainView = () => {
     const [token, setToken] = useState(storedToken ? storedToken : null);
 
     const [movies, setMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
+    // const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         if (!token) return;
@@ -43,6 +44,14 @@ export const MainView = () => {
 
     return (
         <BrowserRouter>
+            <NavigationBar
+                user={user}
+                onLoggedOut={() => {
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                }}
+            />
             <Row className='justify-content-md-center'>
                 <Routes>
                     <Route
@@ -90,12 +99,7 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={8}>
-                                        <MovieView
-                                            movies={movies}
-                                            // onBackClick={() =>
-                                            //     setSelectedMovie(null)
-                                            // }
-                                        />
+                                        <MovieView movies={movies} />
                                     </Col>
                                 )}
                             </>
@@ -119,14 +123,7 @@ export const MainView = () => {
                                                     md={2}
                                                     className='mb-5'
                                                 >
-                                                    <MovieCard
-                                                        movie={movie}
-                                                        // onMovieClick={() => {
-                                                        //     setSelectedMovie(
-                                                        //         movie
-                                                        //     );
-                                                        // }}
-                                                    />
+                                                    <MovieCard movie={movie} />
                                                 </Col>
                                             ))}
 
