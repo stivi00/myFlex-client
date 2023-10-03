@@ -13,10 +13,8 @@ export const MovieCard = ({ movie, onMovieClick }) => {
             />
             <Card.Body>
                 <Card.Title>{movie.Title}</Card.Title>
-                {/* <Link to={`/movies/${encodeURIComponent(movie.Title)}`}> */}
                 <Link to={`/movies/${encodeURIComponent(movie.Title)}`}>
                     <Button variant='link'>Open</Button>
-                    {/* <Button onClick={() => onMovieClick(movie)}>Open</Button> */}
                 </Link>
             </Card.Body>
         </Card>

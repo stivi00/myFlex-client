@@ -14,15 +14,26 @@ export const ProfileView = ({ movies }) => {
         user.FavoriteMovies.includes(m.id)
     );
 
-    console.log('favsss', favoriteMovies);
-
     const handleUpdate = () => {};
 
     return (
         <>
             <Row className='justify-content-center'>
-                <Col md={5}>
+                <Col>
                     <h1 className='profile'>Welcome {user.Username} </h1>
+
+                    <Row>
+                        <Col>
+                            <h3 className='favorite-title'>Favorite movies:</h3>
+                        </Col>
+                    </Row>
+                    <Row className='justify-content-center'>
+                        {favoriteMovies.map((movie) => (
+                            <Col className='mb-4' key={movie.title}>
+                                <MovieCard movie={movie} />
+                            </Col>
+                        ))}
+                    </Row>
                 </Col>
             </Row>
         </>
