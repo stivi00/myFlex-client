@@ -16,7 +16,6 @@ export const MainView = () => {
     const [token, setToken] = useState(storedToken ? storedToken : null);
 
     const [movies, setMovies] = useState([]);
-    // const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         if (!token) return;
@@ -142,54 +141,6 @@ export const MainView = () => {
                             </>
                         }
                     />
-
-                    {/* {!user ? (
-                        <>
-                            <Col md={5}>
-                                <LoginView
-                                    onLoggedIn={(user, token) => {
-                                        setUser(user);
-                                        setToken(token);
-                                    }}
-                                />
-                                or
-                                <SignupView />
-                            </Col>
-                        </>
-                    ) : selectedMovie ? (
-                        <Col md={8}>
-                            <MovieView
-                                movie={selectedMovie}
-                                onBackClick={() => setSelectedMovie(null)}
-                            />
-                        </Col>
-                    ) : movies.length === 0 ? (
-                        <div>The list is empty!</div>
-                    ) : (
-                        <>
-                            {movies.map((movie) => (
-                                <Col key={movie.id} md={2} className='mb-5'>
-                                    <MovieCard
-                                        key={movie.id}
-                                        movie={movie}
-                                        onMovieClick={() => {
-                                            setSelectedMovie(movie);
-                                        }}
-                                    />
-                                </Col>
-                            ))}
-
-                            <Button
-                                onClick={() => {
-                                    setUser(null);
-                                    setToken(null);
-                                    localStorage.clear();
-                                }}
-                            >
-                                Logout
-                            </Button>
-                        </>
-                    )} */}
                 </Routes>
             </Row>
         </BrowserRouter>
