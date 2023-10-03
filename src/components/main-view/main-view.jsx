@@ -4,6 +4,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
+import { ProfileView } from '../profile-view/profile-view';
 
 import { Row, Col, Button } from 'react-bootstrap';
 
@@ -53,6 +54,21 @@ export const MainView = () => {
             />
             <Row className='justify-content-md-center'>
                 <Routes>
+                    <Route
+                        path='/profile'
+                        element={
+                            <>
+                                {!user ? (
+                                    <Navigate to='/' />
+                                ) : (
+                                    <Col md={5}>
+                                        <ProfileView movies={movies} />
+                                    </Col>
+                                )}
+                            </>
+                        }
+                    />
+
                     <Route
                         path='/signup'
                         element={
