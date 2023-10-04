@@ -29,7 +29,6 @@ export const MovieView = ({ movies, user, token }) => {
         )
             .then((response) => response.json())
             .then((response) => {
-                console.log('Login response: ', data);
                 alert('Movie added to favorites', response);
             })
             .catch((e) => {
