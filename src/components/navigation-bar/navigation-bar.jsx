@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const NavigationBar = ({ user, onLoggedOut }) => {
     return (
-        <Navbar bg='primary' expand='lg'>
+        <Navbar bg='primary' expand='lg' class='nav-fill'>
             <Container>
                 <Navbar.Brand as={Link} to='/'>
                     My Flix
                 </Navbar.Brand>
-                <Navbar.Toggle
-                    aria-controls='basic-navbar-nav'
-                    style={{ background: 'red' }}
-                />
+                <Navbar.Toggle aria-controls='basic-navbar-nav' />
                 <Navbar.Collapse id='basic-navbar-nav'>
                     <Nav className='me-auto'>
                         {!user && (

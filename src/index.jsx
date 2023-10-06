@@ -6,7 +6,7 @@ import './index.scss';
 
 const MyFlixApplication = () => {
     return (
-        <Container>
+        <Container style={{ width: '100%' }}>
             <MainView className='my-flix' />
         </Container>
     );
