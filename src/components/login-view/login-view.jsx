@@ -39,7 +39,7 @@ export const LoginView = ({ onLoggedIn }) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className='loginForm' onSubmit={handleSubmit}>
             <Form.Group controlId='formUsername'>
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
@@ -60,7 +60,7 @@ export const LoginView = ({ onLoggedIn }) => {
                     required
                 />
             </Form.Group>
-            <Button variant='primary' type='submit'>
+            <Button className='formButton' variant='primary' type='submit'>
                 Submit
             </Button>
         </Form>
