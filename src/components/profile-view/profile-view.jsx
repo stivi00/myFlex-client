@@ -124,6 +124,7 @@ export const ProfileView = ({ movies }) => {
             <Row className='justify-content-center'>
                 <Col className='save-button' md={5}>
                     <Button
+                        className='formButton'
                         variant='primary'
                         type='submit'
                         onClick={handleSubmit}

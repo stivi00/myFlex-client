@@ -52,7 +52,7 @@ export const MainView = () => {
                     localStorage.clear();
                 }}
             />
-            <Row className='justify-content-md-center'>
+            <Row id='myFlix-box' className='justify-content-md-center'>
                 <Routes>
                     <Route
                         path='/profile'
