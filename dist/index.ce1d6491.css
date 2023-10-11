@@ -13203,8 +13203,17 @@ textarea.form-control-lg {
   }
 }
 
+#myFlix-box {
+  padding-top: 10px;
+}
+
 .formButton {
   margin: 15px;
+}
+
+.movieCard-buttons {
+  justify-content: space-between;
+  display: flex;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { MovieCard } from '../movie-card/movie-card';
-import { Form, Button, Row, Col, Modal } from 'react-bootstrap';
+import { Form, Button, Row, Col, Modal, Card } from 'react-bootstrap';
 
 export const ProfileView = ({ movies }) => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
@@ -77,60 +77,65 @@ export const ProfileView = ({ movies }) => {
         <>
             <Row className='justify-content-center'>
                 <Col>
-                    <h1 className='profile'>Welcome {user.Username} </h1>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>{user.Username}'s Profile</Card.Title>
+                            <Form>
+                                <Form.Group
+                                    controlId='formUsername'
+                                    className='form-group'
+                                >
+                                    <Form.Label>Username:</Form.Label>
+                                    <Form.Control
+                                        type='text'
+                                        value={user.Username}
+                                        onChange={(e) =>
+                                            setUser(e.target.value)
+                                        }
+                                        required
+                                    />
+                                </Form.Group>
 
-                    <Form>
-                        <Form.Group
-                            controlId='formUsername'
-                            className='form-group'
-                        >
-                            <Form.Label>Username:</Form.Label>
-                            <Form.Control
-                                type='text'
-                                value={user.Username}
-                                onChange={(e) => setUser(e.target.value)}
-                                required
-                            />
-                        </Form.Group>
+                                <Form.Group
+                                    controlId='formPassword'
+                                    className='form-group'
+                                >
+                                    <Form.Label>Password:</Form.Label>
+                                    <Form.Control
+                                        type='password'
+                                        value={password}
+                                        onChange={(e) =>
+                                            setPassword(e.target.value)
+                                        }
+                                        required
+                                    />
+                                </Form.Group>
 
-                        <Form.Group
-                            controlId='formPassword'
-                            className='form-group'
-                        >
-                            <Form.Label>Password:</Form.Label>
-                            <Form.Control
-                                type='password'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
-                        </Form.Group>
-
-                        <Form.Group
-                            controlId='formEmail'
-                            className='form-group'
-                        >
-                            <Form.Label>Email:</Form.Label>
-                            <Form.Control
-                                type='email'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            />
-                        </Form.Group>
-                    </Form>
-                </Col>
-            </Row>
-            <Row className='justify-content-center'>
-                <Col className='save-button' md={5}>
-                    <Button
-                        className='formButton'
-                        variant='primary'
-                        type='submit'
-                        onClick={handleSubmit}
-                    >
-                        Save changes
-                    </Button>
+                                <Form.Group
+                                    controlId='formEmail'
+                                    className='form-group'
+                                >
+                                    <Form.Label>Email:</Form.Label>
+                                    <Form.Control
+                                        type='email'
+                                        value={email}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
+                                        required
+                                    />
+                                </Form.Group>
+                                <Button
+                                    className='formButton'
+                                    variant='primary'
+                                    type='submit'
+                                    onClick={handleSubmit}
+                                >
+                                    Save changes
+                                </Button>
+                            </Form>
+                        </Card.Body>
+                    </Card>
                 </Col>
             </Row>
 
