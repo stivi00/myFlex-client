@@ -43,10 +43,11 @@ export const MovieView = ({ movies, user, token }) => {
                 <Card.Title>{movie.Title}</Card.Title>
                 <Card.Text>{movie.Director.Name}</Card.Text>
 
-                <Link to={`/`}>
-                    <Button className='back-button'>Back</Button>
-                </Link>
-                <div>
+                <div className='movieCard-buttons'>
+                    <Link to={`/`}>
+                        <Button className='back-button'>Back</Button>
+                    </Link>
+
                     <Button
                         variant='info'
                         onClick={() => {
