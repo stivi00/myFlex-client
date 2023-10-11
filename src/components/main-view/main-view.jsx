@@ -6,7 +6,7 @@ import { SignupView } from '../signup-view/signup-view';
 import { NavigationBar } from '../navigation-bar/navigation-bar';
 import { ProfileView } from '../profile-view/profile-view';
 
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Form } from 'react-bootstrap';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ export const MainView = () => {
     const [token, setToken] = useState(storedToken ? storedToken : null);
 
     const [movies, setMovies] = useState([]);
+    const [searchValue, setSearchValue] = useState('');
 
     useEffect(() => {
         if (!token) return;
@@ -136,15 +137,36 @@ export const MainView = () => {
                                 ) : (
                                     <>
                                         <>
-                                            {movies.map((movie) => (
-                                                <Col
-                                                    key={movie.id}
-                                                    md={2}
-                                                    className='mb-5'
-                                                >
-                                                    <MovieCard movie={movie} />
-                                                </Col>
-                                            ))}
+                                            <Form>
+                                                <Form.Control
+                                                    className='filterMovie'
+                                                    value={searchValue}
+                                                    onChange={(e) =>
+                                                        setSearchValue(
+                                                            e.target.value
+                                                        )
+                                                    }
+                                                    placeholder=' Type movie title here'
+                                                />
+                                            </Form>
+
+                                            {movies
+                                                .filter((movie) =>
+                                                    movie.Title.toLowerCase().includes(
+                                                        searchValue.toLowerCase()
+                                                    )
+                                                )
+                                                .map((movie) => (
+                                                    <Col
+                                                        key={movie.id}
+                                                        md={2}
+                                                        className='mb-5'
+                                                    >
+                                                        <MovieCard
+                                                            movie={movie}
+                                                        />
+                                                    </Col>
+                                                ))}
                                         </>
                                     </>
                                 )}
