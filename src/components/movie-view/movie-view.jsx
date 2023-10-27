@@ -2,7 +2,7 @@ import { Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-export const MovieView = ({ movies, user, token }) => {
+export const MovieView = ({ movies, user, token, setUser }) => {
     const theMovie = useParams();
 
     const movie = movies.find((b) => b.Title === theMovie.Title);
@@ -17,7 +17,6 @@ export const MovieView = ({ movies, user, token }) => {
     const addToFavorites = (username, movie) => {
         fetch(
             `https://myflixapi-50hz.onrender.com/users/${username}/movies/${movie.id}`,
-
             {
                 method: 'POST',
                 headers: {
@@ -30,6 +29,21 @@ export const MovieView = ({ movies, user, token }) => {
             .then((response) => response.json())
             .then((response) => {
                 alert('Movie added to favorites', response);
+                // Fetch the updated user data
+                return fetch(
+                    `https://myflixapi-50hz.onrender.com/users/${username}`,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    }
+                );
+            })
+            .then((response) => response.json())
+            .then((updatedUser) => {
+                // Update the local storage and user state
+                localStorage.setItem('user', JSON.stringify(updatedUser));
+                setUser(updatedUser);
             })
             .catch((e) => {
                 alert('Something went wrong');
